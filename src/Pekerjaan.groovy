@@ -6,6 +6,12 @@ class Pekerjaan {
     String deskripsi;
     String gambar;
 
+    Pekerjaan() {
+        judul = ""
+        deskripsi = ""
+        gambar = ""
+    }
+
     def judulPekerjaan(String judul){
         this.judul = judul;
     }
