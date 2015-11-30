@@ -1,16 +1,9 @@
 @Grab(group='org.freemarker', module='freemarker', version='2.3.23')
-import javax.sound.sampled.Port
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.util.HashMap;
-import java.util.Map;
+
 /**
  * Created by fahziar on 30/11/2015.
  */
@@ -22,11 +15,10 @@ class Portofolio {
     List<Keahlian> daftarKeahlian;
     List<Pekerjaan> daftarPekerjaan;
 
-    def static make(Closure buatPortofolio){
+    def static buat(Closure buatPortofolio){
         Portofolio portofolio = new Portofolio();
         buatPortofolio.delegate = portofolio;
         buatPortofolio()
-        println buatPortofolio.delegate;
 
         //Freemarker configuration object
         Configuration cfg = new Configuration();
@@ -43,16 +35,16 @@ class Portofolio {
             data.put("daftarKeahlian", portofolio.daftarKeahlian);
             data.put("daftarPekerjaan", portofolio.daftarPekerjaan);
 
-            // Console output
-            Writer out = new OutputStreamWriter(System.out);
-            template.process(data, out);    
-            out.flush();
+            //Copy file
+            Util.copyFolder(new File(System.getProperty("user.dir") + "/templates/template-front-end"), new File(System.getProperty("user.dir") + "/output"));
 
             // File output
-            Writer file = new FileWriter (new File("index.html"));
+            Writer file = new FileWriter (new File(System.getProperty("user.dir") + "/output/index.html"));
             template.process(data, file);
             file.flush();
             file.close();
+
+            println "Sukses membuat portofolio"
             
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,7 +1,7 @@
 /**
  * Created by fahziar on 30/11/2015.
  */
-Portofolio.make {
+Portofolio.buat {
     nama "James Bond"
     deskripsiDiri "Agen Rahasia Inggris"
     linkFoto "http://jamesbond.007/foto.jpg"
