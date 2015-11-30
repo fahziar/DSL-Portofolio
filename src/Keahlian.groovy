@@ -2,14 +2,14 @@
  * Created by fahziar on 30/11/2015.
  */
 class Keahlian {
-	String namakeahlian;
-    String deskripsikeahlian;
+	String nama;
+    String deskripsiKeahlian;
 
-    def keahlianUser(String namakeahlian){
-        this.namakeahlian = namakeahlian;
+    def namaKeahlian(String nama){
+        this.nama = nama;
     }
 
-    def deskripsiKeahlianUser(String deskripsikeahlian){
-    	this.deskripsikeahlian = deskripsikeahlian;
+    def deskripsiKeahlian(String deskripsi){
+    	this.deskripsiKeahlian = deskripsiKeahlian;
     }
 }
