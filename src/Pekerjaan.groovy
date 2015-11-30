@@ -5,4 +5,16 @@ class Pekerjaan {
     String judul;
     String deskripsi;
     String gambar;
+
+    def judulPekerjaan(String judul){
+        this.judul = judul;
+    }
+
+    def deskripsiPekerjaan(String deskripsi){
+    	this.deskripsi = deskripsi;
+    }
+
+    def gambarPekerjaan(String gambar){
+    	this.gambar = gambar;
+    }
 }
