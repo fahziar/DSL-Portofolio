@@ -1,3 +1,5 @@
+import javax.sound.sampled.Port
+
 /**
  * Created by fahziar on 30/11/2015.
  */
@@ -12,8 +14,13 @@ class Portofolio {
     def static make(Closure buatPortofolio){
         Portofolio portofolio = new Portofolio();
         buatPortofolio.delegate = portofolio;
-        detilPortofolio()
+        buatPortofolio()
         println buatPortofolio.delegate;
+    }
+
+    Portofolio(){
+        daftarKeahlian = new ArrayList<>()
+        daftarPekerjaan = new ArrayList<>()
     }
 
     def nama(String namaPemilik){
@@ -28,7 +35,10 @@ class Portofolio {
         this.foto = foto;
     }
 
-    def kontak(Kontak kontakPemilik){
+    def kontak(Closure buatKontak){
+        Kontak kontakPemilik = new Kontak();
+        buatKontak.delegate = kontakPemilik;
+        buatKontak()
         this.kontakPemilik = kontakPemilik;
     }
 
@@ -40,7 +50,7 @@ class Portofolio {
     }
 
     def pekerjaan(Closure tambahPekerjaan){
-        pekerjaan tmp = new Pekerjaan();
+        Pekerjaan tmp = new Pekerjaan();
         tambahPekerjaan.delegate = tmp;
         tambahPekerjaan();
         this.daftarPekerjaan.push(tmp);
