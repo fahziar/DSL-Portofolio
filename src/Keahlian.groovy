@@ -3,13 +3,13 @@
  */
 class Keahlian {
 	String nama;
-    String deskripsiKeahlian;
+    String deskripsi;
 
     def namaKeahlian(String nama){
         this.nama = nama;
     }
 
     def deskripsiKeahlian(String deskripsi){
-    	this.deskripsiKeahlian = deskripsiKeahlian;
+    	this.deskripsi = deskripsi;
     }
 }

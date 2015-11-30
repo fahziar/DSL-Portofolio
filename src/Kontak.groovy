@@ -9,6 +9,15 @@ class Kontak {
     String linkedin;
     String email;
 
+    Kontak() {
+        facebook = ""
+        twitter = ""
+        telepon = ""
+        github = ""
+        linkedin = ""
+        email = ""
+    }
+
     def linkFacebook(String facebook){
         this.facebook = facebook;
     }
